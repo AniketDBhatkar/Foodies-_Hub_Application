@@ -1,0 +1,489 @@
+/* style.css
+   Main styles for Foodies site (includes testimonial, footer, newsletter, animations)
+*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*,
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:active,
+:hover,
+:focus {
+    outline: 0 !important;
+    outline-offset: 0;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--primary-color) !important;
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+ul li::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: -2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+ul li:hover::after {
+    width: 100%;
+}
+
+/* ====== Variables ====== */
+:root {
+    --primary-color: #A82C48;
+    --secondary-color: #43121d;
+    --third-color: #f98169;
+    --white-color: #fff;
+    --text-color: #555;
+    --text-gray: #999;
+    --black-color: #000;
+    --primary-font: 'Roboto', sans-serif;
+    --secondary-font: 'Quicksand', sans-serif;
+    --container-width: 1200px;
+}
+
+/* Base */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--primary-font);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-color);
+    background: #fafafa;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--white-color);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+}
+
+/* Headings */
+h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+    line-height: 1.05;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 2.25rem;
+    text-transform: capitalize;
+    font-family: var(--secondary-font);
+    color: var(--secondary-color);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h4 {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+h5 {
+    color: var(--primary-color);
+    text-transform: capitalize;
+    font-family: var(--secondary-font);
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+}
+
+p {
+    font-size: 1rem;
+    color: var(--text-color);
+    font-weight: 400;
+    letter-spacing: 0.2px;
+}
+
+/* Buttons */
+.main-btn {
+    display: inline-block;
+    padding: 10px 30px;
+    line-height: 1.4;
+    background-color: var(--primary-color);
+    border: 3px solid var(--primary-color);
+    color: var(--white-color);
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: capitalize;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transition: all .35s ease;
+}
+
+.white-btn {
+    display: inline-block;
+    padding: 10px 30px;
+    line-height: 1.4;
+    background-color: var(--white-color);
+    border: 3px solid var(--white-color);
+    color: var(--secondary-color);
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: capitalize;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    transition: all .35s ease;
+}
+
+.main-btn:hover {
+    background: transparent;
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* Layout wrapper */
+.wrapper {
+    padding-top: 8.25rem;
+    padding-bottom: 8.25rem;
+}
+
+/* Header / Navbar */
+.navigation-wrap {
+    position: sticky;
+    width: calc(100% - 128px);
+    left: 64px;
+    top: 24px;
+    z-index: 1000;
+    transition: all .25s ease;
+    background: transparent;
+    border-radius: 12px;
+    padding: 6px 14px;
+    
+}
+
+.navigation-wrap .navbar-brand img {
+    height: 56px;
+}
+
+.navigation-wrap .nav-item {
+    padding: 0 10px;
+}
+
+.nav-link {
+    font-size: 14px;
+    text-transform: capitalize;
+    font-weight: 600;
+    color: var(--primary-color);
+    letter-spacing: 0.6px;
+}
+
+/* Navbar when scrolled (JS toggles .scroll-on) */
+.navigation-wrap.scroll-on {
+    position: fixed;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px;
+    background: var(--white-color);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+}
+
+/* Top banner / hero */
+.top-banner {
+    width: 100%;
+    background: url(../images/bg/bg-1.jpg) no-repeat center;
+    background-size: cover;
+    padding: 16.875rem 0 9.375rem;
+    color: #fff;
+}
+
+.top-banner h1 {
+    color: var(--primary-color);
+    font-size: 3.25rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.45);
+}
+
+.top-banner p {
+    color:var(--text-color);
+    max-width: 520px;
+}
+
+/* Counter section */
+.counter-section {
+    background-color: var(--primary-color);
+    padding: 2.5rem 0;
+    color: var(--white-color);
+}
+
+.counter-section h2 {
+    color: var(--white-color);
+    font-size: 2.25rem;
+}
+.counter-section p {
+    color: var(--white-color);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* About section */
+.about-section {
+    background: var(--white-color);
+}
+.about-section .card,
+.about-section .card img {
+    border-radius: 10px;
+}
+.about-section .text-sec {
+    padding-left: 2rem;
+    text-align: justify;
+}
+
+/* Story */
+.story-section {
+    width: 100%;
+    height: 28.125rem;
+    background: url(../images/bg/bg-2.jpg) no-repeat center;
+    background-size: cover;
+    object-fit: cover;
+    padding-top: 100px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    color: #fff;
+}
+.story-section h2 {
+    color: var(--primary-color);
+    background: rgba(255,255,255,0.95);
+    padding: 10px 18px;
+    border-radius: 8px;
+}
+
+/* Explore food cards */
+.explore-food .card {
+    border: none;
+    background-color: transparent;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform .35s ease, box-shadow .35s ease;
+}
+.explore-food .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+}
+.explore-food .card img {
+    border-radius: 12px;
+    object-fit: cover;
+    height: 220px;
+    width: 100%;
+}
+.explore-food .card span {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 12px;
+}
+.explore-food .card span del {
+    color: var(--text-gray);
+    margin-left: 0.5rem;
+}
+
+/* ========== Testimonial Section ========== */
+#Reviews,
+.review-section,
+.testimonial-section {
+    /* allow either id or new class */
+}
+.review-section {
+    padding: 4rem 0;
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(250,245,246,1) 100%);
+}
+
+.review-section .container h2 {
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+.review-section p {
+    color: var(--text-gray);
+    margin-bottom: 2rem;
+}
+
+/* Card style used in HTML: .card.p-4 inside review rows */
+.review-section .card {
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    transition: transform .35s ease, box-shadow .35s ease;
+    padding: 28px;
+    text-align: center;
+    background: #fff;
+}
+.review-section .card img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid rgba(168,44,72,0.08);
+    margin: 0 auto 14px;
+    display: block;
+}
+.review-section .card h5 {
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+    color: var(--secondary-color);
+}
+.review-section .card p {
+    font-style: italic;
+    color: var(--text-color);
+    margin-top: 6px;
+    font-size: 0.95rem;
+}
+.review-section .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 50px rgba(0,0,0,0.12);
+}
+
+/* FAQ / Accordion tweaks */
+.faq .accordion-button {
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+    margin-bottom: 12px;
+}
+.faq .accordion-button:not(.collapsed) {
+    background: linear-gradient(90deg, rgba(168,44,72,0.08), rgba(249,129,105,0.03));
+    color: var(--secondary-color);
+}
+
+/* Book food CTA */
+#book-food {
+    background: linear-gradient(90deg, rgba(248,245,245,1) 0%, rgba(255,255,255,1) 100%);
+    padding: 4rem 0;
+}
+
+/* Newsletter */
+.newsletter-section {
+    background: linear-gradient(180deg, rgba(255,255,255,1), rgba(255,250,250,1));
+    padding: 3rem 0;
+}
+.news-input {
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+.news-input input[type="email"] {
+    padding: 12px 16px;
+    border-radius: 999px;
+    border: 2px solid rgba(0,0,0,0.06);
+    width: 320px;
+    font-size: 14px;
+    transition: border-color .25s ease, box-shadow .25s ease;
+}
+.news-input input[type="email"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 30px rgba(168,44,72,0.06);
+    outline: none;
+}
+.news-input .main-btn {
+    padding: 10px 18px;
+    border-radius: 999px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    padding: 28px 0;
+    color: var(--text-gray);
+}
+footer p {
+    margin: 4px 0;
+    background-color: var(--primary-color);
+    padding: 100px;
+    color: var(--white-color);
+}
+
+/* Small utility */
+.text-center { text-align: center; }
+
+/* ====== Animations (CSS-only simple effects) ====== */
+.fade-up {
+    animation: fadeUp .7s ease forwards;
+    opacity: 0;
+    transform: translateY(12px);
+}
+@keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.scale-in {
+    animation: scaleIn .54s cubic-bezier(.2,.9,.3,1) forwards;
+    opacity: 0;
+    transform: scale(.98);
+}
+@keyframes scaleIn {
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* helper to quickly apply hover lift for cards */
+.lift:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+
+/* Small responsive-friendly helpers */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 999; /* ensures it's above all content */
+    background: #ffffff;
+    transition: all 0.3s ease;
+}
+
+/* Shadow when scrolling */
+header.scrolled {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}

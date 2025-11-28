@@ -1,0 +1,125 @@
+/* responsive.css
+   Responsive tweaks for Foodies site
+*/
+
+/* General breakpoint layout adjustments */
+@media (max-width: 1199px) {
+    .navigation-wrap {
+        width: calc(100% - 64px);
+        left: 32px;
+        top: 18px;
+    }
+    .top-banner h1 { font-size: 2.8rem; }
+    .about-section .text-sec { padding-left: 1rem; }
+}
+
+@media (max-width: 991px) {
+    /* Layout & spacing */
+    .wrapper { padding-top: 5.5rem; padding-bottom: 4.5rem; }
+    .navigation-wrap {
+        width: calc(100% - 40px);
+        left: 20px;
+        top: 12px;
+        text-align: left;
+        background: rgba(255,255,255,0.95);
+    }
+    .navigation-wrap .navbar-brand img { height: 48px; }
+
+    .top-banner {
+        padding: 10.5rem 0 6.5rem;
+        background-position: center;
+    }
+    .top-banner h1 { font-size: 2.6rem; }
+    .top-banner p { max-width: 100%; }
+
+    /* About & explore */
+    .about-section .text-sec { padding: 0.75rem 0; }
+    .explore-food .card img { height: 200px; }
+
+    /* Review cards -> grid 2 columns */
+    .review-section .row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .review-section .col-lg-4 { margin-bottom: 0; }
+    .story-section { height: auto; padding: 3.5rem 1.25rem; }
+
+    /* News input small fix */
+    .news-input input[type="email"] { width: 260px; }
+}
+
+@media (max-width: 767px) {
+    /* Small devices */
+    .navigation-wrap {
+        left: 8px;
+        width: calc(100% - 16px);
+        padding: 8px 12px;
+    }
+    .navigation-wrap .nav-link { display: block; padding: 8px 10px; color: var(--primary-color); }
+
+    /* Banner */
+    .top-banner {
+        padding: 9.5rem 0 6rem;
+        background-position: center top;
+    }
+    .top-banner h1 { font-size: 2.4rem; }
+    .top-banner p { font-size: 0.95rem; }
+
+    /* hero buttons stack on mobile */
+    .top-banner .main-btn,
+    .top-banner .white-btn { display: inline-block; width: auto; }
+
+    /* About section -> stacked */
+    .about-section .row { gap: 1.5rem; }
+    .about-section .card img { width: 100%; height: auto; }
+
+    /* Explore food -> single column cards */
+    .explore-food .row {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    /* Testimonials -> single column */
+    .review-section .row {
+        grid-template-columns: 1fr;
+    }
+
+    /* FAQ accordion padding */
+    .faq .accordion-button {
+        padding: 16px;
+        font-size: 15px;
+    }
+
+    /* News input stacked */
+    .news-input {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .news-input input[type="email"] { width: 100%; max-width: 100%; padding: 12px; }
+    .news-input .main-btn { width: 100%; }
+
+    /* Footer */
+    footer { padding: 24px 8px; font-size: 14px; }
+}
+
+@media (max-width: 576px) {
+    h1 { font-size: 1.9rem; }
+    h2 { font-size: 1.4rem; line-height: 1.3; }
+    .navigation-wrap .navbar-brand img { height: 42px; }
+    .top-banner { padding: 7.5rem 0 4.5rem; }
+    .explore-food .card img { height: 180px; }
+
+    /* Make nav toggler center */
+    .navbar-toggler { border: none; }
+
+    /* Make nav buttons full width in collapsed view */
+    .navigation-wrap .main-btn { display: none; } /* hide call button on very small devices to save space */
+}
+
+/* Accessibility / small improvements */
+@media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
